@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Applicationparkateje</string>
+    <string name="vamos_aprender">Vamos Aprender</string>
+    <string name="vamos_jogar">Vamos Jogar</string>
+    <string name="Pergunta">Perguntas</string>
+    <string name="cultura">Cultura Parkatêjê</string>
+    <string name="ajuda">Ajuda</string>
+    <string name="title_activity_lista_item">ListaItemActivity</string>
 </resources>
