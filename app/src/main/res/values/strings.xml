@@ -6,4 +6,13 @@
     <string name="cultura">Cultura Parkatêjê</string>
     <string name="ajuda">Ajuda</string>
     <string name="title_activity_lista_item">ListaItemActivity</string>
+
+    <string name="Cachorro">Cachorro</string>
+    <string name="Cobra">Cobra</string>
+    <string name="Jacaré">Jacaré</string>
+    <string name="Macaco">Macaco</string>
+    <string name="Paca">Paca</string>
+    <string name="Abelha">Abelha</string>
+    <string name="Gavião">Gavião</string>
+    
 </resources>

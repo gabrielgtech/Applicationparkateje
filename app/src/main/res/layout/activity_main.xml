@@ -27,7 +27,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="Aprender"
-        android:onClick="abreLista"/>
+        />
 
     <Button
         android:id="@+id/historia"
