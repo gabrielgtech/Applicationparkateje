@@ -17,9 +17,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".Tela2">
-
             <category android:name="android.intent.category.LAUNCHER" />
         </activity>
+        <activity android:name=".Tela3">
+            <category android:name="android.intent.category.LAUNCHER" />
+        </activity>
+        <activity
+            android:name=".controller.JogoActivity"
+            android:label="@string/title_activity_jogo"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+             <category android:name="android.intent.category.LAUNCHER" />
     </application>
 
 </manifest>

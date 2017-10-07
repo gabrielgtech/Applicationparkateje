@@ -1,10 +1,17 @@
 package com.example.gabriel.applicationparkateje;
 
+import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.gabriel.applicationparkateje.palavras.Animais;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -15,6 +22,7 @@ public class Tela2 extends AppCompatActivity{
 
     ListView listaDados;
     ArrayList<Dados>lista;
+    Animais animais = new Animais();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,5 +39,18 @@ public class Tela2 extends AppCompatActivity{
 
         Adapter adapter = new Adapter(getApplicationContext(), lista);
         listaDados.setAdapter(adapter);
+
+        listaDados.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Dados  obj = (Dados) adapterView.getItemAtPosition(i);
+                Intent intent = new Intent(getApplicationContext(), Tela3.class);
+                intent.putExtra("objeto", obj);
+
+                startActivity(intent);
+            }
+        });
     }
+
 }

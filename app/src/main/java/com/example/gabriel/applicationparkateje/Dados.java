@@ -1,10 +1,12 @@
 package com.example.gabriel.applicationparkateje;
 
+import java.io.Serializable;
+
 /**
  * Created by Gabriel on 19/09/2017.
  */
 
-public class Dados {
+public class Dados implements Serializable{
     private int Id;
     private String Titulo;
     private String Detalhes;

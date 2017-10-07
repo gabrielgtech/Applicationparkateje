@@ -24,9 +24,6 @@ public class Adapter extends BaseAdapter{
         this.listaObjetos = listaObjetos;
     }
 
-
-
-
     @Override
     public int getCount() {
         return listaObjetos.size(); // retorna a quantidade de elementos da lista
@@ -49,9 +46,9 @@ public class Adapter extends BaseAdapter{
         LayoutInflater inflate = LayoutInflater.from(context);
         visao = inflate.inflate(R.layout.itemlista, null);
 
-        ImageView imagem = (ImageView)visao.findViewById(R.id.imageView);
-        TextView titulo = (TextView)visao.findViewById(R.id.txtTitulo);
-        TextView descricao = (TextView)visao.findViewById(R.id.txtDescricao);
+        ImageView imagem = visao.findViewById(R.id.imageView);
+        TextView titulo = visao.findViewById(R.id.txtTitulo);
+        TextView descricao = visao.findViewById(R.id.txtDescricao);
 
         imagem.setImageResource(listaObjetos.get(position).getImagem());
         titulo.setText(listaObjetos.get(position).getTitulo().toString());
