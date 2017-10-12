@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/tela_jogo"
+    android:background="@android:color/holo_blue_light"
+    android:padding="8dp"
     tools:context="com.example.gabriel.applicationparkateje.controller.JogoActivity">
-
 
     <ImageView
         android:id="@+id/imgJogo"
@@ -13,63 +15,72 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="131dp"
+        android:layout_margin="30dp"
         app:srcCompat="@android:color/holo_green_light" />
+
+    <RelativeLayout
+        android:id="@+id/perguntalt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgJogo"
+        android:background="@drawable/pergunta_background"
+        android:layout_margin="8dp">
+
+        <TextView
+            android:id="@+id/pergunta"
+            android:layout_width="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:layout_centerHorizontal="true"
+            android:text="TextView"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
 
     <Button
         android:id="@+id/opcao1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/imgJogo"
-        android:layout_marginLeft="37dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="130dp"
-
-        android:text="TextView" />
+        android:background="@drawable/pergunta_background"
+        android:layout_below="@+id/perguntalt"
+        android:clickable="true"
+        android:text="teste"
+        android:textStyle="bold"
+        android:layout_margin="8dp"/>
 
     <Button
         android:id="@+id/opcao2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/opcao1"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginEnd="61dp"
-        android:layout_marginRight="61dp"
-
-        android:text="TextView" />
+        android:layout_below="@id/opcao1"
+        android:layout_marginRight="50dp"
+        android:clickable="true"
+        android:background="@drawable/pergunta_background"
+        android:text="teste"
+        android:textStyle="bold"
+        android:layout_margin="8dp"/>
 
     <Button
         android:id="@+id/opcao3"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/opcao1"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/opcao1"
-        android:layout_marginBottom="133dp"
-
-        android:text="TextView" />
+        android:layout_below="@id/opcao2"
+        android:background="@drawable/pergunta_background"
+        android:clickable="true"
+        android:text="teste"
+        android:textStyle="bold"
+        android:layout_margin="8dp"/>
 
     <Button
         android:id="@+id/opcao4"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/opcao2"
-        android:layout_alignStart="@+id/opcao2"
-        android:layout_alignTop="@+id/opcao3"
-
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/pergunta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imgJogo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="47dp"
-        android:text="TextView" />
-
+        android:layout_below="@id/opcao3"
+        android:background="@drawable/pergunta_background"
+        android:clickable="true"
+        android:text="teste"
+        android:textStyle="bold"
+        android:layout_margin="8dp"/>
 
 </RelativeLayout>

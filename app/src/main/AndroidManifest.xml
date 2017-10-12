@@ -25,8 +25,11 @@
         <activity
             android:name=".controller.JogoActivity"
             android:label="@string/title_activity_jogo"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-             <category android:name="android.intent.category.LAUNCHER" />
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <category android:name="android.intent.category.LAUNCHER" />
+
+        <activity android:name=".controller.jogo2Activity"></activity>
     </application>
 
 </manifest>

@@ -179,18 +179,12 @@ public class Tela3 extends AppCompatActivity {
             break;
         }
 
-        btnPlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(getApplicationContext(), JogoActivity.class);
-                intent.putExtra("objeto", dados);
-                startActivity(intent);
-            }
-        });
 
 
     }
-
+    public void abreLista(View view){
+        Intent intent = new Intent(getApplicationContext(), JogoActivity.class);
+        startActivity(intent);
+    }
 
 }

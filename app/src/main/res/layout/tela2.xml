@@ -9,5 +9,6 @@
         android:id="@+id/listaDados"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:dividerHeight="7dp" />
+        android:dividerHeight="7dp"
+        android:background="@android:color/holo_blue_light"/>
 </LinearLayout>
