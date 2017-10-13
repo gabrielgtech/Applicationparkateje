@@ -24,26 +24,26 @@ import java.lang.reflect.Array;
 public class JogoActivity extends AppCompatActivity {
 
     ImageView imagem;
-    Button opcao1,opcao2,opcao3,opcao4;
+    Button opcao1, opcao2, opcao3, opcao4;
     TextView pergunta;
     Button[] botoes = new Button[4];
     boolean pressionado = false;
     private AlertDialog respostaCorreta, respostaIncorreta;
 
-    String[] Animais = {"Cachorro","Jiboia","Jacaré","paca"};
-    String[] AnimaisParkateje = {"Kire","Hàkati","Mĩre","Kra"};
+    String[] Animais = {"Cachorro", "Jiboia", "Jacaré", "paca"};
+    String[] AnimaisParkateje = {"Kire", "Hàkati", "Mĩre", "Kra"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jogo);
 
-        imagem = (ImageView)findViewById(R.id.imgJogo);
-        opcao1 = (Button)findViewById(R.id.opcao1);
-        opcao2 = (Button)findViewById(R.id.opcao2);
-        opcao3 = (Button)findViewById(R.id.opcao3);
-        opcao4 = (Button)findViewById(R.id.opcao4);
-        pergunta = (TextView)findViewById(R.id.pergunta);
+        imagem = (ImageView) findViewById(R.id.imgJogo);
+        opcao1 = (Button) findViewById(R.id.opcao1);
+        opcao2 = (Button) findViewById(R.id.opcao2);
+        opcao3 = (Button) findViewById(R.id.opcao3);
+        opcao4 = (Button) findViewById(R.id.opcao4);
+        pergunta = (TextView) findViewById(R.id.pergunta);
         botoes = new Button[]{opcao1, opcao2, opcao3, opcao4};
 
         final MediaPlayer audio = MediaPlayer.create(this, R.raw.cachorro);
@@ -64,49 +64,22 @@ public class JogoActivity extends AppCompatActivity {
             }
         });
 
-            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
 
+        opcao1.setOnClickListener(new View.OnClickListener() {
 
-            opcao1.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View view) {
-                    pressionado = true;
-                    builder.setTitle("Resultado");
-                    builder.setMessage(" Resposta Correta ");
-
-                    builder.setIcon(R.drawable.check);
-                    builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Intent intent = new Intent(getApplicationContext(),jogo2Activity.class );
-                            startActivity(intent);
-                        }
-                    });
-
-                    respostaCorreta = builder.create();
-                    respostaCorreta.show();
-
-                }
-            });
+            @Override
+            public void onClick(View view) {
+                preencheAlertDialog(builder, true);
+            }
+        });
 
         opcao2.setOnClickListener(new View.OnClickListener() {
             @Override
 
             public void onClick(View view) {
-
-                builder.setTitle("Resultado");
-                builder.setMessage("! ! ! Resposta Incorreta ! ! !");
-                builder.setIcon(R.drawable.incorrect);
-                builder.setNegativeButton("Tente Novamente", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                    }
-                });
-                respostaIncorreta = builder.create();
-                respostaIncorreta.show();
+                preencheAlertDialog(builder, false);
 
             }
         });
@@ -115,19 +88,7 @@ public class JogoActivity extends AppCompatActivity {
             @Override
 
             public void onClick(View view) {
-
-                builder.setTitle("Resultado");
-                builder.setMessage("! ! ! Resposta Incorreta ! ! !");
-                builder.setIcon(R.drawable.incorrect);
-                builder.setNegativeButton("Tente Novamente", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                    }
-                });
-
-                respostaIncorreta = builder.create();
-                respostaIncorreta.show();
+                preencheAlertDialog(builder, false);
             }
         });
 
@@ -135,22 +96,54 @@ public class JogoActivity extends AppCompatActivity {
             @Override
 
             public void onClick(View view) {
-
-                builder.setTitle("Resultado");
-                builder.setMessage("! ! ! Resposta Incorreta ! ! !");
-                builder.setIcon(R.drawable.incorrect);
-                builder.setNegativeButton("Tente Novamente", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                    }
-                });
-
-                respostaIncorreta = builder.create();
-                respostaIncorreta.show();
+                preencheAlertDialog(builder, false);
 
             }
         });
+    }
+
+    public void preencheAlertDialog(AlertDialog.Builder builder, boolean respostaCerta) {
+        if (respostaCerta) {
+            builder.setTitle("Resultado");
+            builder.setMessage(" Resposta Correta ");
+
+            builder.setIcon(R.drawable.check);
+            builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Intent intent = new Intent(getApplicationContext(), jogo2Activity.class);
+                    startActivity(intent);
+                }
+            });
+            builder.setNegativeButton("", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            });
+
+            respostaCorreta = builder.create();
+            respostaCorreta.show();
+        } else {
+            builder.setTitle("Resultado");
+            builder.setMessage("! ! ! Resposta Incorreta ! ! !");
+            builder.setIcon(R.drawable.incorrect);
+            builder.setNegativeButton("Tente Novamente", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            });
+
+            builder.setPositiveButton("", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            });
+            respostaIncorreta = builder.create();
+            respostaIncorreta.show();
+        }
 
     }
 }
