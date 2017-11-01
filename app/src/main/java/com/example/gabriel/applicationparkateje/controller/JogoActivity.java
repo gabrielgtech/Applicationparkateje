@@ -20,40 +20,42 @@ import android.widget.Toast;
 import com.example.gabriel.applicationparkateje.R;
 
 import java.lang.reflect.Array;
+import java.util.List;
+
+import static com.example.gabriel.applicationparkateje.R.id.opcao1;
+import static com.example.gabriel.applicationparkateje.R.id.opcao2;
+import static com.example.gabriel.applicationparkateje.R.id.opcao3;
+import static com.example.gabriel.applicationparkateje.R.id.opcao4;
 
 public class JogoActivity extends AppCompatActivity {
 
     ImageView imagem;
     Button opcao1, opcao2, opcao3, opcao4;
     TextView pergunta;
-    Button[] botoes = new Button[4];
-    boolean pressionado = false;
+    int respostaCerta;
     private AlertDialog respostaCorreta, respostaIncorreta;
 
-    String[] Animais = {"Cachorro", "Jiboia", "Jacaré", "paca"};
+    //String[] Animais = {"Cachorro", "Jiboia", "Jacaré", "paca"};
     String[] AnimaisParkateje = {"Kire", "Hàkati", "Mĩre", "Kra"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jogo);
-
+        //getSupportActionBar().hide();
+        carregarQuestao();
         imagem = (ImageView) findViewById(R.id.imgJogo);
         opcao1 = (Button) findViewById(R.id.opcao1);
         opcao2 = (Button) findViewById(R.id.opcao2);
         opcao3 = (Button) findViewById(R.id.opcao3);
         opcao4 = (Button) findViewById(R.id.opcao4);
         pergunta = (TextView) findViewById(R.id.pergunta);
-        botoes = new Button[]{opcao1, opcao2, opcao3, opcao4};
+
 
         final MediaPlayer audio = MediaPlayer.create(this, R.raw.cachorro);
         imagem.setImageResource(R.drawable.cachorro);
 
-        opcao1.setText(AnimaisParkateje[0]);
-        opcao2.setText(AnimaisParkateje[1]);
-        opcao3.setText(AnimaisParkateje[2]);
-        opcao4.setText(AnimaisParkateje[3]);
-        pergunta.setText("Escute o audio pressionando a imagem a cima, e escolha a opção correta ?");
+        //pergunta.setText("Escute o audio pressionando a imagem a cima, e escolha a opção correta ?");
 
         //metodo que toca o audio
         imagem.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +74,9 @@ public class JogoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 preencheAlertDialog(builder, true);
+                carregarQuestao();
+
+
             }
         });
 
@@ -101,6 +106,7 @@ public class JogoActivity extends AppCompatActivity {
             }
         });
     }
+
 
     public void preencheAlertDialog(AlertDialog.Builder builder, boolean respostaCerta) {
         if (respostaCerta) {
@@ -146,4 +152,18 @@ public class JogoActivity extends AppCompatActivity {
         }
 
     }
+
+    private void carregarQuestao(){
+
+        Questoes q = questoes.remove(0);
+        pergunta.setText(q.getPergunta());
+        List<String> resposta = q.getRespostas();
+        opcao1.setText(resposta.get(0));
+        opcao2.setText(resposta.get(1));
+        opcao3.setText(resposta.get(2));
+        opcao4.setText(resposta.get(3));
+        respostaCerta = q.getRespostaCerta();
+
+    }
+
 }

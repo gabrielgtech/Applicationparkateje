@@ -11,12 +11,14 @@
 
     <TextView
         android:id="@+id/txtPergunta2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
         android:layout_above="@+id/imgresposta2"
+        android:layout_width="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="87dp" />
+        android:text="TextView"
+        android:textStyle="bold"/>
 
     <ImageView
         android:id="@+id/imgresposta"
@@ -24,38 +26,35 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
         android:layout_marginRight="12dp"
-        app:srcCompat="@drawable/cachorro"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/txtPergunta2"
-        android:layout_toStartOf="@+id/txtPergunta2" />
+        android:layout_margin="30dp"/>
 
     <ImageView
         android:id="@+id/imgresposta2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/cobra"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
         android:layout_alignTop="@+id/imgresposta"
-        android:layout_toRightOf="@+id/txtPergunta2"
-        android:layout_toEndOf="@+id/txtPergunta2" />
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="32dp"/>
 
     <ImageView
         android:id="@+id/imgresposta3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        app:srcCompat="@drawable/flecha"
         android:layout_below="@+id/imgresposta2"
         android:layout_alignRight="@+id/imgresposta2"
-        android:layout_alignEnd="@+id/imgresposta" />
+        android:layout_alignEnd="@+id/imgresposta"
+        android:elevation="10dp" />
 
     <ImageView
         android:id="@+id/imgresposta4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        app:srcCompat="@drawable/canoa"
         android:layout_alignTop="@+id/imgresposta3"
         android:layout_alignLeft="@+id/imgresposta2"
-        android:layout_alignStart="@+id/imgresposta2" />
+        android:layout_alignStart="@+id/imgresposta2"
+        android:elevation="10dp" />
 
 </RelativeLayout>
