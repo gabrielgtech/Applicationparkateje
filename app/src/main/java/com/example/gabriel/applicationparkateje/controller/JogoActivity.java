@@ -20,7 +20,6 @@ import android.widget.Toast;
 import com.example.gabriel.applicationparkateje.R;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.gabriel.applicationparkateje.R.id.opcao1;
@@ -38,15 +37,6 @@ public class JogoActivity extends AppCompatActivity {
 
     //String[] Animais = {"Cachorro", "Jiboia", "Jacaré", "paca"};
     String[] AnimaisParkateje = {"Kire", "Hàkati", "Mĩre", "Kra"};
-    List<Questoes> questoes = new ArrayList<Questoes>(){
-        {
-            add(new Questoes("Escute o audio pressionando a imagem a cima, e escolha a opção correta ?", R.id.opcao1, AnimaisParkateje));
-            //add(new Questoes("",R.id.imgresposta));
-            //add(new Questoes("",R.id.imgresposta2));
-            //add(new Questoes("",R.id.imgresposta3));
-            //add(new Questoes("",R.id.imgresposta4));
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +58,6 @@ public class JogoActivity extends AppCompatActivity {
         //pergunta.setText("Escute o audio pressionando a imagem a cima, e escolha a opção correta ?");
 
         //metodo que toca o audio
-        carregarQuestao();
         imagem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,7 +74,7 @@ public class JogoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 preencheAlertDialog(builder, true);
-
+                carregarQuestao();
 
 
             }

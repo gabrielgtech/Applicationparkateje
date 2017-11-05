@@ -27,6 +27,24 @@ public class Questoes {
         this.respostaCerta = respostaCerta;
     }
 
+    List<Questoes> questoes1 = new ArrayList<Questoes>(){
+        {
+            add(new Questoes("Escute o audio pressionando a imagem a cima, e escolha a opção correta ?", R.id.txtPergunta2));
+            add(new Questoes("",R.id.imgresposta) );
+            add(new Questoes("",R.id.imgresposta2));
+            add(new Questoes("",R.id.imgresposta3));
+            add(new Questoes("",R.id.imgresposta4));
+        }
+    };
+    List<Questoes> questoes2 = new ArrayList<Questoes>(){
+        {
+            add(new Questoes("Escute o audio pressionando a imagem a cima, e escolha a opção correta ?", R.id.txtPergunta2));
+            add(new Questoes("",R.id.imgresposta) );
+            add(new Questoes("",R.id.imgresposta2));
+            add(new Questoes("",R.id.imgresposta3));
+            add(new Questoes("",R.id.imgresposta4));
+        }
+    };
 
     public String getPergunta() {
         return pergunta;
