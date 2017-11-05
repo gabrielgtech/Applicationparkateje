@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.gabriel.applicationparkateje.R;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.gabriel.applicationparkateje.R.id.opcao1;
@@ -37,19 +38,29 @@ public class JogoActivity extends AppCompatActivity {
 
     //String[] Animais = {"Cachorro", "Jiboia", "Jacaré", "paca"};
     String[] AnimaisParkateje = {"Kire", "Hàkati", "Mĩre", "Kra"};
+    List<Questoes> questoes = new ArrayList<Questoes>(){
+        {
+            add(new Questoes("Escute o audio pressionando a imagem a cima, e escolha a opção correta ?", R.id.imgresposta, AnimaisParkateje));
+            // add(new Questoes("",R.id.imgresposta));
+            // add(new Questoes("",R.id.imgresposta2));
+            //add(new Questoes("",R.id.imgresposta3));
+            //add(new Questoes("",R.id.imgresposta4));
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jogo);
         //getSupportActionBar().hide();
-        carregarQuestao();
+
         imagem = (ImageView) findViewById(R.id.imgJogo);
         opcao1 = (Button) findViewById(R.id.opcao1);
         opcao2 = (Button) findViewById(R.id.opcao2);
         opcao3 = (Button) findViewById(R.id.opcao3);
         opcao4 = (Button) findViewById(R.id.opcao4);
         pergunta = (TextView) findViewById(R.id.pergunta);
+
 
 
         final MediaPlayer audio = MediaPlayer.create(this, R.raw.cachorro);
@@ -68,13 +79,13 @@ public class JogoActivity extends AppCompatActivity {
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-
+        carregarQuestao();
         opcao1.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 preencheAlertDialog(builder, true);
-                carregarQuestao();
+
 
 
             }
@@ -152,7 +163,6 @@ public class JogoActivity extends AppCompatActivity {
         }
 
     }
-
     private void carregarQuestao(){
 
         Questoes q = questoes.remove(0);
@@ -165,5 +175,6 @@ public class JogoActivity extends AppCompatActivity {
         respostaCerta = q.getRespostaCerta();
 
     }
+
 
 }

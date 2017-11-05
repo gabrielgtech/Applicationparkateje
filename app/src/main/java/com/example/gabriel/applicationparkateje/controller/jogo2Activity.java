@@ -13,12 +13,25 @@ import android.widget.TextView;
 
 import com.example.gabriel.applicationparkateje.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class jogo2Activity extends AppCompatActivity {
 
     TextView pergunta;
     ImageView img1, img2,img3,img4;
     private AlertDialog respostaCorreta, respostaIncorreta;
-    int respostaCerta = 0;
+    int respostaCerta;
+    int [] images = {R.drawable.cachorro, R.drawable.cobra, R.drawable.jacare, R.drawable.animal};
+    List<Questoes> questoes = new ArrayList<Questoes>(){
+        {
+            add(new Questoes("Qual destas imagens representa a palavra 'Kire' em parkatêjê ?", R.id.imgresposta, images.toString()));
+            // add(new Questoes("",R.id.imgresposta));
+            // add(new Questoes("",R.id.imgresposta2));
+            //add(new Questoes("",R.id.imgresposta3));
+            //add(new Questoes("",R.id.imgresposta4));
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +45,8 @@ public class jogo2Activity extends AppCompatActivity {
         img3 = (ImageView)findViewById(R.id.imgresposta3);
         img4 = (ImageView)findViewById(R.id.imgresposta4);
 
-        pergunta.setText("Qual destas imagens representa a palavra 'Kire' em parkatêjê ?");
-        img1.setImageResource(R.drawable.cachorro);
-        img2.setImageResource(R.drawable.jacare);
-        img3.setImageResource(R.drawable.frutas);
-        img4.setImageResource(R.drawable.canoa);
+     //   pergunta.setText("Qual destas imagens representa a palavra 'Kire' em parkatêjê ?");
+        carregarQuestao();
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         img1.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +100,23 @@ public class jogo2Activity extends AppCompatActivity {
             respostaIncorreta = builder.create();
             respostaIncorreta.show();
         }
+
+    }
+    private void carregarQuestao(){
+
+        Questoes q = questoes.remove(1);
+        pergunta.setText(q.getPergunta());
+        List<String> resposta = q.getRespostas();
+        int resposta1 = Integer.parseInt(resposta.get(1));
+        int resposta2 = Integer.parseInt(resposta.get(2));
+        int resposta3 = Integer.parseInt(resposta.get(3));
+        int resposta4 = Integer.parseInt(resposta.get(4));
+
+        img1.setImageResource(resposta1);
+        img2.setImageResource(resposta2);
+        img3.setImageResource(resposta3);
+        img4.setImageResource(resposta4);
+        respostaCerta = q.getRespostaCerta();
 
     }
 }

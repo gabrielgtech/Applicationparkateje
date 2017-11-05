@@ -26,25 +26,21 @@ public class Questoes {
         this.respostas.add(respostas[3]);
         this.respostaCerta = respostaCerta;
     }
+/*
+    private String pergunta1;
+    private List<Integer> respostas1 = new ArrayList<>();
+    private int respostaCerta1;
 
-    List<Questoes> questoes1 = new ArrayList<Questoes>(){
-        {
-            add(new Questoes("Escute o audio pressionando a imagem a cima, e escolha a opção correta ?", R.id.txtPergunta2));
-            add(new Questoes("",R.id.imgresposta) );
-            add(new Questoes("",R.id.imgresposta2));
-            add(new Questoes("",R.id.imgresposta3));
-            add(new Questoes("",R.id.imgresposta4));
-        }
-    };
-    List<Questoes> questoes2 = new ArrayList<Questoes>(){
-        {
-            add(new Questoes("Escute o audio pressionando a imagem a cima, e escolha a opção correta ?", R.id.txtPergunta2));
-            add(new Questoes("",R.id.imgresposta) );
-            add(new Questoes("",R.id.imgresposta2));
-            add(new Questoes("",R.id.imgresposta3));
-            add(new Questoes("",R.id.imgresposta4));
-        }
-    };
+    public Questoes(String pergunta, int respostaCerta, int []respostas){
+        this.pergunta1 = pergunta;
+        this.respostas1.add(respostas[0]);
+        this.respostas1.add(respostas[1]);
+        this.respostas1.add(respostas[2]);
+        this.respostas1.add(respostas[3]);
+        this.respostaCerta1 = respostaCerta;
+    }
+
+*/
 
     public String getPergunta() {
         return pergunta;
