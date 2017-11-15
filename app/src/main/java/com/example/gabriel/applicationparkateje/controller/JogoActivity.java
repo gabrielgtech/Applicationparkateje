@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.gabriel.applicationparkateje.R;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.gabriel.applicationparkateje.R.id.opcao1;
@@ -33,17 +34,27 @@ public class JogoActivity extends AppCompatActivity {
     Button opcao1, opcao2, opcao3, opcao4;
     TextView pergunta;
     int respostaCerta;
+
     private AlertDialog respostaCorreta, respostaIncorreta;
 
     //String[] Animais = {"Cachorro", "Jiboia", "Jacaré", "paca"};
     String[] AnimaisParkateje = {"Kire", "Hàkati", "Mĩre", "Kra"};
+    List<Questoes> questoes = new ArrayList<Questoes>(){
+        {
+            add(new Questoes("Escute o audio pressionando a imagem a cima, e escolha a opção correta ?", R.id.imgresposta, AnimaisParkateje));
+            add(new Questoes("Escute o audio pressionando a imagem a cima, e escolha a opção correta ?", R.id.imgresposta, AnimaisParkateje));
+           // add(new Questoes("",R.id.imgresposta2));
+            //add(new Questoes("",R.id.imgresposta3));
+            //add(new Questoes("",R.id.imgresposta4));
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jogo);
         //getSupportActionBar().hide();
-        carregarQuestao();
+
         imagem = (ImageView) findViewById(R.id.imgJogo);
         opcao1 = (Button) findViewById(R.id.opcao1);
         opcao2 = (Button) findViewById(R.id.opcao2);
@@ -68,13 +79,13 @@ public class JogoActivity extends AppCompatActivity {
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-
+        carregarQuestao();
         opcao1.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 preencheAlertDialog(builder, true);
-                carregarQuestao();
+
 
 
             }
@@ -111,7 +122,7 @@ public class JogoActivity extends AppCompatActivity {
     public void preencheAlertDialog(AlertDialog.Builder builder, boolean respostaCerta) {
         if (respostaCerta) {
             builder.setTitle("Resultado");
-            builder.setMessage(" Resposta Correta ");
+            builder.setMessage(" Resposta Correta  +10pts");
 
             builder.setIcon(R.drawable.check);
             builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {

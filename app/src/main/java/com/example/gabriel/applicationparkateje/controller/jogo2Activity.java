@@ -25,7 +25,7 @@ public class jogo2Activity extends AppCompatActivity {
     int [] images = {R.drawable.cachorro, R.drawable.cobra, R.drawable.jacare, R.drawable.animal};
     List<Questoes> questoes = new ArrayList<Questoes>(){
         {
-            add(new Questoes("Qual destas imagens representa a palavra 'Kire' em parkatêjê ?", R.id.imgresposta, images.toString()));
+            add(new Questoes("Qual destas imagens representa a palavra 'Kire' em parkatêjê ?", R.id.imgresposta,images ));
             // add(new Questoes("",R.id.imgresposta));
             // add(new Questoes("",R.id.imgresposta2));
             //add(new Questoes("",R.id.imgresposta3));
@@ -45,16 +45,19 @@ public class jogo2Activity extends AppCompatActivity {
         img3 = (ImageView)findViewById(R.id.imgresposta3);
         img4 = (ImageView)findViewById(R.id.imgresposta4);
 
-     //   pergunta.setText("Qual destas imagens representa a palavra 'Kire' em parkatêjê ?");
+        //pergunta.setText("Qual destas imagens representa a palavra 'Kire' em parkatêjê ?");
         carregarQuestao();
+        img1.setImageResource(R.drawable.cachorro);
+        img2.setImageResource(R.drawable.jacare);
+        img3.setImageResource(R.drawable.cobra);
+        img4.setImageResource(R.drawable.canoa);
+
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
             preencheAlertDialog(builder, true);
-
-
             }
         });
     }
@@ -62,13 +65,14 @@ public class jogo2Activity extends AppCompatActivity {
     public void preencheAlertDialog(AlertDialog.Builder builder, boolean respostaCerta) {
         if (respostaCerta) {
             builder.setTitle("Resultado");
-            builder.setMessage(" Resposta Correta ");
+            builder.setMessage(" Resposta Correta + 10 pts");
 
             builder.setIcon(R.drawable.check);
             builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                   //
+                   Intent intent = new Intent(getApplicationContext(), jogo2Activity.class);
+                    startActivity(intent);
                 }
             });
             builder.setNegativeButton("", new DialogInterface.OnClickListener() {
@@ -104,19 +108,16 @@ public class jogo2Activity extends AppCompatActivity {
     }
     private void carregarQuestao(){
 
-        Questoes q = questoes.remove(1);
-        pergunta.setText(q.getPergunta());
-        List<String> resposta = q.getRespostas();
-        int resposta1 = Integer.parseInt(resposta.get(1));
-        int resposta2 = Integer.parseInt(resposta.get(2));
-        int resposta3 = Integer.parseInt(resposta.get(3));
-        int resposta4 = Integer.parseInt(resposta.get(4));
+        Questoes q = questoes.remove(0);
+        pergunta.setText(q.getPergunta1());
+        List<Integer> resposta = q.getRespostas1();
 
-        img1.setImageResource(resposta1);
-        img2.setImageResource(resposta2);
-        img3.setImageResource(resposta3);
-        img4.setImageResource(resposta4);
-        respostaCerta = q.getRespostaCerta();
+
+        img1.setImageResource(resposta.get(0));
+        img2.setImageResource(resposta.get(1));
+        img3.setImageResource(resposta.get(2));
+        img4.setImageResource(resposta.get(3));
+        respostaCerta = q.getRespostaCerta1();
 
     }
 }

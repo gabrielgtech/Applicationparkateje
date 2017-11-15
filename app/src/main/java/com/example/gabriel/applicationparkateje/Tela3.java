@@ -14,10 +14,6 @@ import android.widget.TextView;
 import com.example.gabriel.applicationparkateje.controller.Adapatador;
 import com.example.gabriel.applicationparkateje.controller.Dados_objetos;
 import com.example.gabriel.applicationparkateje.controller.JogoActivity;
-import com.example.gabriel.applicationparkateje.palavras.Animais;
-import com.example.gabriel.applicationparkateje.palavras.Frutas;
-import com.example.gabriel.applicationparkateje.palavras.Objetos;
-import com.example.gabriel.applicationparkateje.palavras.Plantas;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;

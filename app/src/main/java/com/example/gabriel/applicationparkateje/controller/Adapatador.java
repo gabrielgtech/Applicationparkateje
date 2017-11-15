@@ -12,16 +12,12 @@ import android.widget.TextView;
 
 import com.example.gabriel.applicationparkateje.Dados;
 import com.example.gabriel.applicationparkateje.R;
-import com.example.gabriel.applicationparkateje.palavras.Animais;
-import com.example.gabriel.applicationparkateje.palavras.Frutas;
-import com.example.gabriel.applicationparkateje.palavras.Objetos;
-import com.example.gabriel.applicationparkateje.palavras.Plantas;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Gabriel on 04/10/2017.
+ * Created by Gabriel on 04/10/2017
  */
 
 public class Adapatador extends BaseAdapter{

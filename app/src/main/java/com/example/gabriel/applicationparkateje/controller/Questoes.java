@@ -16,6 +16,9 @@ public class Questoes {
     private List<String> respostas = new ArrayList<>();
     private int respostaCerta;
 
+    private String pergunta1;
+    private List<Integer> respostas1 = new ArrayList<>();
+    private int respostaCerta1;
 
 
     public Questoes(String pergunta, int respostaCerta, String... respostas){
@@ -27,31 +30,33 @@ public class Questoes {
         this.respostaCerta = respostaCerta;
     }
 
-    List<Questoes> questoes1 = new ArrayList<Questoes>(){
-        {
-            add(new Questoes("Escute o audio pressionando a imagem a cima, e escolha a opção correta ?", R.id.txtPergunta2));
-            add(new Questoes("",R.id.imgresposta) );
-            add(new Questoes("",R.id.imgresposta2));
-            add(new Questoes("",R.id.imgresposta3));
-            add(new Questoes("",R.id.imgresposta4));
-        }
-    };
-    List<Questoes> questoes2 = new ArrayList<Questoes>(){
-        {
-            add(new Questoes("Escute o audio pressionando a imagem a cima, e escolha a opção correta ?", R.id.txtPergunta2));
-            add(new Questoes("",R.id.imgresposta) );
-            add(new Questoes("",R.id.imgresposta2));
-            add(new Questoes("",R.id.imgresposta3));
-            add(new Questoes("",R.id.imgresposta4));
-        }
-    };
+    public Questoes(String pergunta, int respostaCerta, int []images){
+
+        this.pergunta1 = pergunta;
+        this.respostas1.add(images[0]);
+        this.respostas1.add(images[1]);
+        this.respostas1.add(images[2]);
+        this.respostas1.add(images[3]);
+        this.respostaCerta1 = respostaCerta;
+    }
+
+
 
     public String getPergunta() {
         return pergunta;
     }
+    public String getPergunta1() {
+        return pergunta1;
+    }
 
     public List<String> getRespostas() {
         return respostas;
+    }
+    public List<Integer> getRespostas1() {
+        return respostas1;
+    }
+    public int getRespostaCerta1() {
+        return respostaCerta1;
     }
 
     public int getRespostaCerta() {

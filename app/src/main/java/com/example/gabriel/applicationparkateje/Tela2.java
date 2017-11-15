@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.gabriel.applicationparkateje.palavras.Animais;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,7 +21,6 @@ public class Tela2 extends AppCompatActivity{
 
     ListView listaDados;
     ArrayList<Dados>lista;
-    Animais animais = new Animais();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
