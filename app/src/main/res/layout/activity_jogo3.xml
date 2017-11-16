@@ -4,30 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/tela_jogo"
+    android:id="@+id/tela_jogo3"
     android:background="#c6ff00"
-    android:padding="8dp"
-    tools:context="com.example.gabriel.applicationparkateje.controller.JogoActivity">
+    android:padding="6dp"
+    tools:context="com.example.gabriel.applicationparkateje.controller.Jogo3Activity">
 
     <ImageView
-        android:id="@+id/imgJogo"
+        android:id="@+id/imgJogo3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="30dp"
-        app:srcCompat="@android:color/holo_green_light" />
+         />
 
     <RelativeLayout
-        android:id="@+id/perguntalt"
+        android:id="@+id/perguntalt3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imgJogo"
+        android:layout_below="@+id/imgJogo3"
         android:background="@drawable/pergunta_background"
         android:layout_margin="8dp">
 
         <TextView
-            android:id="@+id/pergunta"
+            android:id="@+id/pergunta3"
             android:layout_width="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_height="wrap_content"
@@ -39,21 +39,21 @@
     </RelativeLayout>
 
     <Button
-        android:id="@+id/opcao1"
+        android:id="@+id/opcao1t3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/pergunta_background"
-        android:layout_below="@+id/perguntalt"
+        android:layout_below="@+id/perguntalt3"
         android:clickable="true"
         android:text="teste"
         android:textStyle="bold"
         android:layout_margin="8dp"/>
 
     <Button
-        android:id="@+id/opcao2"
+        android:id="@+id/opcao2t3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/opcao1"
+        android:layout_below="@id/opcao1t3"
         android:layout_marginRight="50dp"
         android:clickable="true"
         android:background="@drawable/pergunta_background"
@@ -62,10 +62,10 @@
         android:layout_margin="8dp"/>
 
     <Button
-        android:id="@+id/opcao3"
+        android:id="@+id/opcao3t3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/opcao2"
+        android:layout_below="@id/opcao2t3"
         android:background="@drawable/pergunta_background"
         android:clickable="true"
         android:text="teste"
@@ -73,10 +73,10 @@
         android:layout_margin="8dp"/>
 
     <Button
-        android:id="@+id/opcao4"
+        android:id="@+id/opcao4t3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/opcao3"
+        android:layout_below="@id/opcao3t3"
         android:background="@drawable/pergunta_background"
         android:clickable="true"
         android:text="teste"

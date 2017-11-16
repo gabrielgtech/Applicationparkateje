@@ -2,61 +2,98 @@ package com.example.gabriel.applicationparkateje.controller;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.example.gabriel.applicationparkateje.controller.JogoActivity;
+
 import com.example.gabriel.applicationparkateje.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class jogo2Activity extends AppCompatActivity {
+public class Jogo3Activity extends AppCompatActivity {
 
+    ImageView imagem;
+    Button opcao1, opcao2, opcao3, opcao4;
     TextView pergunta;
-    ImageView img1, img2,img3,img4;
-    private AlertDialog respostaCorreta, respostaIncorreta;
     int respostaCerta;
-    int [] images = {R.drawable.cachorro, R.drawable.cobra, R.drawable.jacare, R.drawable.animal};
+
+    private AlertDialog respostaCorreta, respostaIncorreta;
+    String[] AnimaisParkateje = {"Kire", "Mĩre", "Hàkati", "Kra"};
     List<Questoes> questoes = new ArrayList<Questoes>(){
         {
-            add(new Questoes("Qual destas imagens representa a palavra 'Kire' em parkatêjê ?", R.id.imgresposta,images ));
-            // add(new Questoes("",R.id.imgresposta));
+            add(new Questoes("Pressione a imagem acima, e escolha a opção correta ?", R.id.opcao3t3, AnimaisParkateje));
             // add(new Questoes("",R.id.imgresposta2));
             //add(new Questoes("",R.id.imgresposta3));
             //add(new Questoes("",R.id.imgresposta4));
         }
     };
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jogo2);
+        setContentView(R.layout.activity_jogo3);
 
-        pergunta = (TextView)findViewById(R.id.txtPergunta2);
+        imagem = (ImageView) findViewById(R.id.imgJogo3);
+        opcao1 = (Button) findViewById(R.id.opcao1t3);
+        opcao2 = (Button) findViewById(R.id.opcao2t3);
+        opcao3 = (Button) findViewById(R.id.opcao3t3);
+        opcao4 = (Button) findViewById(R.id.opcao4t3);
+        pergunta = (TextView) findViewById(R.id.pergunta3);
 
-        img1 = (ImageView)findViewById(R.id.imgresposta);
-        img2 = (ImageView)findViewById(R.id.imgresposta2);
-        img3 = (ImageView)findViewById(R.id.imgresposta3);
-        img4 = (ImageView)findViewById(R.id.imgresposta4);
+        final MediaPlayer audio = MediaPlayer.create(this, R.raw.jiboia);
+        imagem.setImageResource(R.drawable.cobra);
 
-        //pergunta.setText("Qual destas imagens representa a palavra 'Kire' em parkatêjê ?");
+        //pergunta.setText("Escute o audio pressionando a imagem a cima, e escolha a opção correta ?");
+        //metodo que toca o audio
         carregarQuestao();
-        img1.setImageResource(R.drawable.cachorro);
-        img2.setImageResource(R.drawable.jacare);
-        img3.setImageResource(R.drawable.cobra);
-        img4.setImageResource(R.drawable.canoa);
-
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-        img1.setOnClickListener(new View.OnClickListener() {
+        imagem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            preencheAlertDialog(builder, true);
+                audio.start();
+
+            }
+        });
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        opcao1.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                preencheAlertDialog(builder, false);
+
+            }
+        });
+
+        opcao2.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View view) {
+                preencheAlertDialog(builder, false);
+
+            }
+        });
+
+        opcao3.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View view) {
+                preencheAlertDialog(builder, true);
+            }
+        });
+
+        opcao4.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View view) {
+                preencheAlertDialog(builder, false);
+
             }
         });
     }
@@ -64,13 +101,13 @@ public class jogo2Activity extends AppCompatActivity {
     public void preencheAlertDialog(AlertDialog.Builder builder, boolean respostaCerta) {
         if (respostaCerta) {
             builder.setTitle("Resultado");
-            builder.setMessage(" Resposta Correta + 10 pts");
+            builder.setMessage(" Resposta Correta  +10pts");
 
             builder.setIcon(R.drawable.check);
             builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                   Intent intent = new Intent(getApplicationContext(), Jogo3Activity.class);
+                    Intent intent = new Intent(getApplicationContext(), Jogo4Activity.class);
                     startActivity(intent);
                 }
             });
@@ -108,15 +145,13 @@ public class jogo2Activity extends AppCompatActivity {
     private void carregarQuestao(){
 
         Questoes q = questoes.remove(0);
-        pergunta.setText(q.getPergunta1());
-        List<Integer> resposta = q.getRespostas1();
-
-
-        img1.setImageResource(resposta.get(0));
-        img2.setImageResource(resposta.get(1));
-        img3.setImageResource(resposta.get(2));
-        img4.setImageResource(resposta.get(3));
-        respostaCerta = q.getRespostaCerta1();
+        pergunta.setText(q.getPergunta());
+        List<String> resposta = q.getRespostas();
+        opcao1.setText(resposta.get(0));
+        opcao2.setText(resposta.get(1));
+        opcao3.setText(resposta.get(2));
+        opcao4.setText(resposta.get(3));
+        respostaCerta = q.getRespostaCerta();
 
     }
 }

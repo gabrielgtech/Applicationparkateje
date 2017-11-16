@@ -6,16 +6,16 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.example.gabriel.applicationparkateje.controller.JogoActivity;
+
 import com.example.gabriel.applicationparkateje.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class jogo2Activity extends AppCompatActivity {
+public class Jogo4Activity extends AppCompatActivity {
+
 
     TextView pergunta;
     ImageView img1, img2,img3,img4;
@@ -24,7 +24,7 @@ public class jogo2Activity extends AppCompatActivity {
     int [] images = {R.drawable.cachorro, R.drawable.cobra, R.drawable.jacare, R.drawable.animal};
     List<Questoes> questoes = new ArrayList<Questoes>(){
         {
-            add(new Questoes("Qual destas imagens representa a palavra 'Kire' em parkatêjê ?", R.id.imgresposta,images ));
+            add(new Questoes("Qual destas imagens representa a palavra 'Hàkati' em parkatêjê ?", R.id.imgresposta2t4,images ));
             // add(new Questoes("",R.id.imgresposta));
             // add(new Questoes("",R.id.imgresposta2));
             //add(new Questoes("",R.id.imgresposta3));
@@ -35,28 +35,42 @@ public class jogo2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jogo2);
+        setContentView(R.layout.activity_jogo4);
 
-        pergunta = (TextView)findViewById(R.id.txtPergunta2);
+        pergunta = (TextView)findViewById(R.id.txtPerguntat4);
 
-        img1 = (ImageView)findViewById(R.id.imgresposta);
-        img2 = (ImageView)findViewById(R.id.imgresposta2);
-        img3 = (ImageView)findViewById(R.id.imgresposta3);
-        img4 = (ImageView)findViewById(R.id.imgresposta4);
+        img1 = (ImageView)findViewById(R.id.imgresposta1t4);
+        img2 = (ImageView)findViewById(R.id.imgresposta2t4);
+        img3 = (ImageView)findViewById(R.id.imgresposta3t4);
+        img4 = (ImageView)findViewById(R.id.imgresposta4t4);
 
         //pergunta.setText("Qual destas imagens representa a palavra 'Kire' em parkatêjê ?");
         carregarQuestao();
-        img1.setImageResource(R.drawable.cachorro);
-        img2.setImageResource(R.drawable.jacare);
-        img3.setImageResource(R.drawable.cobra);
-        img4.setImageResource(R.drawable.canoa);
-
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            preencheAlertDialog(builder, true);
+                preencheAlertDialog(builder, false);
+            }
+        });
+        img2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                preencheAlertDialog(builder, true);
+            }
+        });
+        img3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                preencheAlertDialog(builder, false);
+            }
+        });
+
+        img4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                preencheAlertDialog(builder, false);
             }
         });
     }
@@ -70,8 +84,8 @@ public class jogo2Activity extends AppCompatActivity {
             builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                   Intent intent = new Intent(getApplicationContext(), Jogo3Activity.class);
-                    startActivity(intent);
+                    //Intent intent = new Intent(getApplicationContext(), Jogo3Activity.class);
+                    //startActivity(intent);
                 }
             });
             builder.setNegativeButton("", new DialogInterface.OnClickListener() {

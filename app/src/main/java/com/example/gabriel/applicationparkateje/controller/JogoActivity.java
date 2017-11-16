@@ -1,5 +1,6 @@
 package com.example.gabriel.applicationparkateje.controller;
 
+import android.app.ActionBar;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -37,15 +38,12 @@ public class JogoActivity extends AppCompatActivity {
 
     private AlertDialog respostaCorreta, respostaIncorreta;
 
-    //String[] Animais = {"Cachorro", "Jiboia", "Jacaré", "paca"};
     String[] AnimaisParkateje = {"Kire", "Hàkati", "Mĩre", "Kra"};
+
     List<Questoes> questoes = new ArrayList<Questoes>(){
         {
-            add(new Questoes("Escute o audio pressionando a imagem a cima, e escolha a opção correta ?", R.id.imgresposta, AnimaisParkateje));
-            add(new Questoes("Escute o audio pressionando a imagem a cima, e escolha a opção correta ?", R.id.imgresposta, AnimaisParkateje));
-           // add(new Questoes("",R.id.imgresposta2));
-            //add(new Questoes("",R.id.imgresposta3));
-            //add(new Questoes("",R.id.imgresposta4));
+            add(new Questoes("Escute o audio pressionando a imagem a cima, e escolha a opção correta ?", R.id.opcao1, AnimaisParkateje));
+
         }
     };
 
@@ -53,7 +51,6 @@ public class JogoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jogo);
-        //getSupportActionBar().hide();
 
         imagem = (ImageView) findViewById(R.id.imgJogo);
         opcao1 = (Button) findViewById(R.id.opcao1);
@@ -61,12 +58,9 @@ public class JogoActivity extends AppCompatActivity {
         opcao3 = (Button) findViewById(R.id.opcao3);
         opcao4 = (Button) findViewById(R.id.opcao4);
         pergunta = (TextView) findViewById(R.id.pergunta);
-
-
+        
         final MediaPlayer audio = MediaPlayer.create(this, R.raw.cachorro);
         imagem.setImageResource(R.drawable.cachorro);
-
-        //pergunta.setText("Escute o audio pressionando a imagem a cima, e escolha a opção correta ?");
 
         //metodo que toca o audio
         imagem.setOnClickListener(new View.OnClickListener() {
@@ -85,8 +79,6 @@ public class JogoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 preencheAlertDialog(builder, true);
-
-
 
             }
         });
@@ -116,8 +108,14 @@ public class JogoActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
 
     public void preencheAlertDialog(AlertDialog.Builder builder, boolean respostaCerta) {
         if (respostaCerta) {

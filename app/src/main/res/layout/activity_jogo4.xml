@@ -6,28 +6,32 @@
     android:layout_height="match_parent"
     android:background="#c6ff00"
     android:padding="8dp"
-    tools:context="com.example.gabriel.applicationparkateje.controller.jogo2Activity">
+    tools:context="com.example.gabriel.applicationparkateje.controller.Jogo4Activity">
+
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/perguntalt2"
+        android:id="@+id/perguntalt4"
         android:background="@drawable/pergunta_background"
-        android:layout_margin="8dp">
+        android:layout_margin="8dp"
+        >
 
-    <TextView
-        android:id="@+id/txtPergunta2"
-        android:layout_width="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:layout_centerHorizontal="true"
-        android:text="TextView"
-        android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/txtPerguntat4"
+            android:layout_width="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:layout_centerHorizontal="true"
+            android:text="TextView"
+            android:textStyle="bold"
+            />
+
     </RelativeLayout>
 
     <ImageView
-        android:id="@+id/imgresposta"
+        android:id="@+id/imgresposta1t4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
@@ -36,31 +40,31 @@
         android:layout_margin="30dp"/>
 
     <ImageView
-        android:id="@+id/imgresposta2"
+        android:id="@+id/imgresposta2t4"
         android:layout_width="96dp"
         android:layout_height="96dp"
-        android:layout_alignTop="@+id/imgresposta"
+        android:layout_alignTop="@+id/imgresposta1t4"
         android:layout_alignParentRight="true"
         android:layout_marginRight="32dp"/>
 
     <ImageView
-        android:id="@+id/imgresposta3"
+        android:id="@+id/imgresposta3t4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:layout_below="@+id/imgresposta2"
-        android:layout_alignRight="@+id/imgresposta2"
-        android:layout_alignEnd="@+id/imgresposta"
+        android:layout_below="@+id/imgresposta2t4"
+        android:layout_alignRight="@+id/imgresposta2t4"
+        android:layout_alignEnd="@+id/imgresposta1t4"
         android:elevation="10dp" />
 
     <ImageView
-        android:id="@+id/imgresposta4"
+        android:id="@+id/imgresposta4t4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_alignTop="@+id/imgresposta3"
-        android:layout_alignLeft="@+id/imgresposta2"
-        android:layout_alignStart="@+id/imgresposta2"
+        android:layout_alignTop="@+id/imgresposta3t4"
+        android:layout_alignLeft="@+id/imgresposta2t4"
+        android:layout_alignStart="@+id/imgresposta2t4"
         android:elevation="10dp" />
 
 </RelativeLayout>
