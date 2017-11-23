@@ -58,7 +58,7 @@ public class JogoActivity extends AppCompatActivity {
         opcao3 = (Button) findViewById(R.id.opcao3);
         opcao4 = (Button) findViewById(R.id.opcao4);
         pergunta = (TextView) findViewById(R.id.pergunta);
-        
+
         final MediaPlayer audio = MediaPlayer.create(this, R.raw.cachorro);
         imagem.setImageResource(R.drawable.cachorro);
 
@@ -120,13 +120,16 @@ public class JogoActivity extends AppCompatActivity {
     public void preencheAlertDialog(AlertDialog.Builder builder, boolean respostaCerta) {
         if (respostaCerta) {
             builder.setTitle("Resultado");
-            builder.setMessage(" Resposta Correta  +10pts");
+            final Pontuacao pontos = new Pontuacao();
+            pontos.setAcertos(1);
+            builder.setMessage(" Resposta Correta  " + pontos.getAcertos());
 
             builder.setIcon(R.drawable.check);
             builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                     Intent intent = new Intent(getApplicationContext(), jogo2Activity.class);
+                    intent.putExtra("Pontuação", pontos);
                     startActivity(intent);
                 }
             });

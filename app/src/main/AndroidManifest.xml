@@ -29,9 +29,14 @@
 
         <category android:name="android.intent.category.LAUNCHER" />
 
-        <activity android:name=".controller.jogo2Activity" />
-        <activity android:name=".controller.Jogo3Activity" />
-        <activity android:name=".controller.Jogo4Activity"></activity>
+        <activity android:name=".controller.jogo2Activity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".controller.Jogo3Activity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".controller.Jogo4Activity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>

@@ -27,25 +27,25 @@ public class Jogo3Activity extends AppCompatActivity {
     String[] AnimaisParkateje = {"Kire", "Mĩre", "Hàkati", "Kra"};
     List<Questoes> questoes = new ArrayList<Questoes>(){
         {
-            add(new Questoes("Pressione a imagem acima, e escolha a opção correta ?", R.id.opcao3t3, AnimaisParkateje));
+            add(new Questoes("Pressione a imagem acima, e escolha a opção correta ?", R.id.btnRespostaC, AnimaisParkateje));
             // add(new Questoes("",R.id.imgresposta2));
             //add(new Questoes("",R.id.imgresposta3));
             //add(new Questoes("",R.id.imgresposta4));
         }
     };
 
-
+    private Pontuacao pontuacao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jogo3);
 
-        imagem = (ImageView) findViewById(R.id.imgJogo3);
-        opcao1 = (Button) findViewById(R.id.opcao1t3);
-        opcao2 = (Button) findViewById(R.id.opcao2t3);
-        opcao3 = (Button) findViewById(R.id.opcao3t3);
-        opcao4 = (Button) findViewById(R.id.opcao4t3);
-        pergunta = (TextView) findViewById(R.id.pergunta3);
+        imagem = (ImageView) findViewById(R.id.question_image);
+        opcao1 = (Button) findViewById(R.id.btnRespostaA);
+        opcao2 = (Button) findViewById(R.id.btnRespostaB);
+        opcao3 = (Button) findViewById(R.id.btnRespostaC);
+        opcao4 = (Button) findViewById(R.id.btnRespostaD);
+        pergunta = (TextView) findViewById(R.id.question_text);
 
         final MediaPlayer audio = MediaPlayer.create(this, R.raw.jiboia);
         imagem.setImageResource(R.drawable.cobra);
@@ -62,6 +62,7 @@ public class Jogo3Activity extends AppCompatActivity {
         });
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
         opcao1.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -101,13 +102,15 @@ public class Jogo3Activity extends AppCompatActivity {
     public void preencheAlertDialog(AlertDialog.Builder builder, boolean respostaCerta) {
         if (respostaCerta) {
             builder.setTitle("Resultado");
-            builder.setMessage(" Resposta Correta  +10pts");
+
+            builder.setMessage("Resposta certa ");
 
             builder.setIcon(R.drawable.check);
             builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                     Intent intent = new Intent(getApplicationContext(), Jogo4Activity.class);
+
                     startActivity(intent);
                 }
             });

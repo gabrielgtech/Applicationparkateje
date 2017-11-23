@@ -31,7 +31,7 @@ public class Jogo4Activity extends AppCompatActivity {
             //add(new Questoes("",R.id.imgresposta4));
         }
     };
-
+    private Pontuacao pontuacao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +47,8 @@ public class Jogo4Activity extends AppCompatActivity {
         //pergunta.setText("Qual destas imagens representa a palavra 'Kire' em parkatêjê ?");
         carregarQuestao();
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        Intent intent = getIntent();
+        pontuacao = (Pontuacao) intent.getSerializableExtra("Pontuação");
 
         img1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,17 +77,19 @@ public class Jogo4Activity extends AppCompatActivity {
         });
     }
 
-    public void preencheAlertDialog(AlertDialog.Builder builder, boolean respostaCerta) {
+    public void preencheAlertDialog(final AlertDialog.Builder builder, boolean respostaCerta) {
+
         if (respostaCerta) {
             builder.setTitle("Resultado");
-            builder.setMessage(" Resposta Correta + 10 pts");
+            builder.setMessage("Resposta certa " + (pontuacao.getAcertos() + 1));
 
             builder.setIcon(R.drawable.check);
             builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    //Intent intent = new Intent(getApplicationContext(), Jogo3Activity.class);
-                    //startActivity(intent);
+
+                    Intent intent = new Intent(getApplicationContext(), Jogo3Activity.class);
+                    startActivity(intent);
                 }
             });
             builder.setNegativeButton("", new DialogInterface.OnClickListener() {

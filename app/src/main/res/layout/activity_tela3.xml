@@ -10,6 +10,7 @@
     android:paddingRight="16dp"
     android:paddingLeft="16dp"
     android:paddingTop="16dp"
+    android:background="@drawable/bg_lateral"
     tools:context="com.example.gabriel.applicationparkateje.Tela3">
 
 

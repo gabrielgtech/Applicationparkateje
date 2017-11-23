@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.gabriel.applicationparkateje.controller.JogoActivity;
 import com.example.gabriel.applicationparkateje.R;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +33,7 @@ public class jogo2Activity extends AppCompatActivity {
             //add(new Questoes("",R.id.imgresposta4));
         }
     };
+    private Pontuacao pontuacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,8 @@ public class jogo2Activity extends AppCompatActivity {
         img4.setImageResource(R.drawable.canoa);
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        Intent intent = getIntent();
+        pontuacao = (Pontuacao) intent.getSerializableExtra("Pontuação");
 
         img1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,10 +66,12 @@ public class jogo2Activity extends AppCompatActivity {
         });
     }
 
-    public void preencheAlertDialog(AlertDialog.Builder builder, boolean respostaCerta) {
+    public void preencheAlertDialog(final AlertDialog.Builder builder, boolean respostaCerta) {
         if (respostaCerta) {
             builder.setTitle("Resultado");
-            builder.setMessage(" Resposta Correta + 10 pts");
+            final Pontuacao pontos = new Pontuacao();
+            pontos.setAcertos(1);
+            builder.setMessage("Resposta certa " + (pontuacao.getAcertos() + 1));
 
             builder.setIcon(R.drawable.check);
             builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
@@ -110,7 +117,6 @@ public class jogo2Activity extends AppCompatActivity {
         Questoes q = questoes.remove(0);
         pergunta.setText(q.getPergunta1());
         List<Integer> resposta = q.getRespostas1();
-
 
         img1.setImageResource(resposta.get(0));
         img2.setImageResource(resposta.get(1));
