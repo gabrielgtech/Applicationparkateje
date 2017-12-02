@@ -5,39 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_main"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context="com.example.gabriel.applicationparkateje.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/app_name"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
+
 
   <RelativeLayout
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
+      android:layout_height="200dp"
+      android:layout_marginTop="300dp"
       android:background="@drawable/background_main">
 
-    <Button
-        android:id="@+id/aprender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:background="@drawable/ic_play_circle_filled_black_48dp"
-        />
+      <android.support.v7.widget.CardView
 
-    <Button
-        android:id="@+id/historia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/aprender"
-        android:layout_alignRight="@+id/aprender"
-        android:layout_below="@+id/aprender"
-        android:layout_marginTop="40dp"
-        android:text="Historia" />
+          app:cardElevation="8dp"
+          android:layout_centerInParent="true"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+          <Button
+
+              android:id="@+id/aprender"
+              android:layout_margin="8dp"
+              android:background="#AD1457"
+              android:foreground="?android:attr/selectableItemBackground"
+              android:text="APRENDER"
+              android:textStyle="bold"
+              android:theme="@style/MyButton"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+
+
+      </android.support.v7.widget.CardView>
+
+
+      <Button
+          android:id="@+id/historia"
+          android:layout_margin="8dp"
+          android:background="#AD1457"
+          android:foreground="?android:attr/selectableItemBackground"
+          android:text="Historia"
+          android:textStyle="bold"
+          android:theme="@style/MyButton"
+          android:textColor="@android:color/white"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" />
   </RelativeLayout>
 
 </LinearLayout>

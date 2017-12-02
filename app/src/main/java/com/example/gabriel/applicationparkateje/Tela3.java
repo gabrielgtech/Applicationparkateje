@@ -28,17 +28,22 @@ public class Tela3 extends AppCompatActivity {
     GridView grade;
     ArrayList<Dados_objetos>dados;
 
-    String[] Animais = {"Cachorro","Jiboia","Jacaré"};
-    Integer []ImagensAnimais = {R.drawable.cachorro, R.drawable.cobra, R.drawable.jacare};
+    String[] Animais = {"Cachorro","Jiboia","Jacaré", "Paca"};
+    Integer []ImagensAnimais = {R.drawable.cachorro, R.drawable.cobra, R.drawable.jacare, R.drawable.icn_paca};
     Integer []AudioAnimais = {R.raw.cachorro, R.raw.jiboia, R.raw.jacare, R.raw.gaviao, R.raw.paca};
 
-    String[] Objetos = {"Flecha","Canoa","Rede","Tora"};
-    Integer []ImagensObjetos = {R.drawable.flecha,R.drawable.canoa,R.drawable.rede,R.drawable.tora};
-    Integer []AudioObjetos = {R.raw.casa,R.raw.jiboia, R.raw.jacare, R.raw.gaviao};
+    String[] Objetos = {"Flecha","Canoa","Rede","Casa"};
+    Integer []ImagensObjetos = {R.drawable.flecha,R.drawable.canoa,R.drawable.rede,R.drawable.icn_casa};
+    Integer []AudioObjetos = {R.raw.arco,R.raw.jiboia, R.raw.rede, R.raw.casa};
 
 
     String[] Plantas = {"Cipó","Embauba","Coração de Jabuti","Batata Braba"};
+    Integer []ImagensPlantas = {R.drawable.icn_cipo,R.drawable.icn_embauba, R.drawable.img_coracao_jabuti,R.drawable.img_batata_braba};
+    Integer []AudioPlantas = {R.raw.cipo,R.raw.embauba, R.raw.coracao_de_jabuti, R.raw.batata};
+
     String[] Frutas = {"Caju","Cupuaçu","Castanha ","Coco"};
+    Integer []ImagensFrutas = {R.drawable.icn_caju,R.drawable.icn_cupuacu,R.drawable.icn_castanha, R.drawable.icn_oco};
+    Integer []AudioFrutas = {R.raw.caju, R.raw.cupuacu,R.raw.castanha, R.raw.coco};
 
     ImageView imagem;
     TextView titulo;
@@ -53,14 +58,29 @@ public class Tela3 extends AppCompatActivity {
         grade =(GridView) findViewById(R.id.grid);
         imagem = (ImageView)findViewById(R.id.imageView);
         titulo = (TextView)findViewById(R.id.txtTitulo2);
-        //btnPlay = (Button)findViewById(R.id.btnJogar);
+        btnPlay = (Button)findViewById(R.id.btnJogar);
 
-        final MediaPlayer gaviao = MediaPlayer.create(this, R.raw.gaviao);
+
         final MediaPlayer cachorro = MediaPlayer.create(this, R.raw.cachorro);
         final MediaPlayer jacare = MediaPlayer.create(this, R.raw.jacare);
         final MediaPlayer paca = MediaPlayer.create(this, R.raw.paca);
-        final MediaPlayer casa = MediaPlayer.create(this, R.raw.casa);
         final MediaPlayer jiboia = MediaPlayer.create(this, R.raw.jiboia);
+
+        final MediaPlayer arco = MediaPlayer.create(this, R.raw.arco);
+        final MediaPlayer casa = MediaPlayer.create(this, R.raw.casa);
+        final MediaPlayer rede = MediaPlayer.create(this, R.raw.rede);
+
+        final MediaPlayer cipo = MediaPlayer.create(this, R.raw.cipo);
+        final MediaPlayer embauba = MediaPlayer.create(this, R.raw.embauba);
+        final MediaPlayer coracao = MediaPlayer.create(this, R.raw.coracao_de_jabuti);
+        final MediaPlayer batata = MediaPlayer.create(this, R.raw.batata);
+
+        final MediaPlayer caju = MediaPlayer.create(this, R.raw.caju);
+        final MediaPlayer cupuacu = MediaPlayer.create(this, R.raw.cupuacu);
+        final MediaPlayer castanha = MediaPlayer.create(this, R.raw.castanha);
+        final MediaPlayer coco = MediaPlayer.create(this, R.raw.coco);
+
+
 
 
         Dados obj = (Dados) getIntent().getExtras().getSerializable("objeto");
@@ -83,11 +103,12 @@ public class Tela3 extends AppCompatActivity {
             for (int i=0; i < ImagensObjetos.length; i++){
 
                 //dados.add(new Dados(i,Plantas[i] ,"",ImagensObjetos[i]));
+                dados.add(new Dados_objetos(Plantas[i],i,ImagensPlantas[i],MediaPlayer.create(this,AudioPlantas[i])));
             }
         }else if (obj.getTitulo().equals("Frutas")){
             for (int i=0; i < ImagensObjetos.length; i++){
 
-              //  dados.add(new Dados(i,Frutas[i] ,"",ImagensObjetos[i]));
+                dados.add(new Dados_objetos(Frutas[i],i,ImagensFrutas[i],MediaPlayer.create(this,AudioFrutas[i])));
 
             }
         }
@@ -112,8 +133,8 @@ public class Tela3 extends AppCompatActivity {
                             jiboia.start();
                         }else if (op.getNome().equals("Jacaré")){
                             jacare.start();
-                        }else if (op.getNome().equals("Frutas")){
-
+                        }else if (op.getNome().equals("Paca")){
+                            paca.start();
                         }
                     }});
             break;
@@ -126,13 +147,13 @@ public class Tela3 extends AppCompatActivity {
 
 
                         if (op.getNome().equals("Flecha")){
-                            casa.start();
+                            arco.start();
                         }else if (op.getNome().equals("Canoa")){
                             jiboia.start();
                         }else if (op.getNome().equals("Rede")){
-                            jacare.start();
-                        }else if (op.getNome().equals("Tora")){
-
+                            rede.start();
+                        }else if (op.getNome().equals("Casa")){
+                            casa.start();
                         }
                     }});
             break;
@@ -146,9 +167,13 @@ public class Tela3 extends AppCompatActivity {
 
 
                         if (op.getNome().equals("Cipó")){
-                            cachorro.start();
+                            cipo.start();
                         }else if (op.getNome().equals("Embauba")){
-                            jiboia.start();
+                            embauba.start();
+                        }else if (op.getNome().equals("Coração de Jabuti")){
+                            coracao.start();
+                        }else if (op.getNome().equals("Batata Braba")){
+                            batata.start();
                         }
                     }});
 
@@ -163,18 +188,24 @@ public class Tela3 extends AppCompatActivity {
 
 
                         if (op.getNome().equals("Caju")){
-                            cachorro.start();
+                            caju.start();
                         }else if (op.getNome().equals("Cupuaçu")){
-                            jiboia.start();
+                            cupuacu.start();
                         }else if (op.getNome().equals("Castanha")){
-                            jacare.start();
+                            castanha.start();
                         }else if (op.getNome().equals("Coco")){
-
+                            coco.start();
                         }
                     }});
             break;
         }
 
+        btnPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abreLista(v);
+            }
+        });
 
 
     }

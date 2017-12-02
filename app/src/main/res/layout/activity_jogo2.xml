@@ -13,10 +13,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/perguntalt2"
         android:background="@drawable/pergunta_background"
-        android:layout_margin="8dp">
+        android:layout_margin="8dp"
+        android:layout_above="@+id/relativeLevel2">
 
     <TextView
-        android:id="@+id/txtPergunta2"
+        android:id="@+id/txtPerguntaLevel2"
         android:layout_width="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_height="wrap_content"
@@ -26,41 +27,117 @@
         android:textStyle="bold"/>
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/imgresposta"
+    <RelativeLayout
+        android:id="@+id/relativeLevel2"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="30dp"
+        android:paddingTop="20dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
-        android:layout_centerVertical="true"
-        android:layout_margin="30dp"/>
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/imgresposta2"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_alignTop="@+id/imgresposta"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="32dp"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/group"
+            android:paddingTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/imgresposta3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_below="@+id/imgresposta2"
-        android:layout_alignRight="@+id/imgresposta2"
-        android:layout_alignEnd="@+id/imgresposta"
-        android:elevation="10dp" />
+            <LinearLayout
+                android:weightSum="2"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/imgresposta4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_alignTop="@+id/imgresposta3"
-        android:layout_alignLeft="@+id/imgresposta2"
-        android:layout_alignStart="@+id/imgresposta2"
-        android:elevation="10dp" />
+                <TextView
+                    android:id="@+id/txtScoreLevel2"
+                    android:textColor="@android:color/black"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textSize="36sp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
 
+                <TextView
+                    android:id="@+id/txtTotalQuestionLevel2"
+                    android:textColor="@android:color/black"
+                    android:gravity="center_horizontal"
+                    android:text="1/4"
+                    android:textSize="36sp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/progressBarLevel2"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:max="5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1.0">
+
+                <Button
+                    android:id="@+id/imgrespostaA"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:visibility="invisible"/>
+
+                <Button
+                    android:id="@+id/imgrespostaB"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="0.4"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:weightSum="1.0">
+
+                <Button
+                    android:id="@+id/imgrespostaC"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                     />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:visibility="invisible"/>
+
+
+                <Button
+                    android:id="@+id/imgrespostaD"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:elevation="10dp"
+                    android:layout_weight="0.4"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
 </RelativeLayout>

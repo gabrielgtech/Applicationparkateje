@@ -24,7 +24,7 @@ public class Jogo4Activity extends AppCompatActivity {
     int [] images = {R.drawable.cachorro, R.drawable.cobra, R.drawable.jacare, R.drawable.animal};
     List<Questoes> questoes = new ArrayList<Questoes>(){
         {
-            add(new Questoes("Qual destas imagens representa a palavra 'Hàkati' em parkatêjê ?", R.id.imgresposta2t4,images ));
+            add(new Questoes("Qual destas imagens representa a palavra 'Hàkati' em parkatêjê ?", images,R.id.imgresposta2t4,1 ,"true"));
             // add(new Questoes("",R.id.imgresposta));
             // add(new Questoes("",R.id.imgresposta2));
             //add(new Questoes("",R.id.imgresposta3));

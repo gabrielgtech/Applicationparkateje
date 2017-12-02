@@ -27,7 +27,7 @@ public class Jogo3Activity extends AppCompatActivity {
     String[] AnimaisParkateje = {"Kire", "Mĩre", "Hàkati", "Kra"};
     List<Questoes> questoes = new ArrayList<Questoes>(){
         {
-            add(new Questoes("Pressione a imagem acima, e escolha a opção correta ?", R.id.btnRespostaC, AnimaisParkateje));
+           // add(new Questoes("Pressione a imagem acima, e escolha a opção correta ?", R.id.btnRespostaC, AnimaisParkateje));
             // add(new Questoes("",R.id.imgresposta2));
             //add(new Questoes("",R.id.imgresposta3));
             //add(new Questoes("",R.id.imgresposta4));
@@ -146,7 +146,7 @@ public class Jogo3Activity extends AppCompatActivity {
 
     }
     private void carregarQuestao(){
-
+/*
         Questoes q = questoes.remove(0);
         pergunta.setText(q.getPergunta());
         List<String> resposta = q.getRespostas();
@@ -155,6 +155,6 @@ public class Jogo3Activity extends AppCompatActivity {
         opcao3.setText(resposta.get(2));
         opcao4.setText(resposta.get(3));
         respostaCerta = q.getRespostaCerta();
-
+*/
     }
 }
